@@ -4,24 +4,20 @@ A simple React component to set a minimum width for its children.
 
 ## Installation
 
-bash
-npm install minwidth-react
+$ npm install minwidth-react
 
 ## Usage
 
-jsx
-import MinWidth from 'minwidth-react';
+```tsx
+import MinWidth from "minwidth-react";
 function App() {
-
-return (
-<MinWidth width={200}>
-
-<div>This content will have a minimum width of 200px</div>
-
-</MinWidth>
-);
-
+  return (
+    <MinWidth width={200}>
+      <div>This content will have a minimum width of 200px</div>
+    </MinWidth>
+  );
 }
+```
 
 ## Props
 
