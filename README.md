@@ -4,7 +4,7 @@ A simple React component to set a minimum width for its children.
 
 ## Installation
 
-    $ npm install minwidth-react
+    $ npm install react-minwidth
 
 ## Usage
 
