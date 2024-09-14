@@ -1,1 +1,4 @@
-export { default as MinWidth } from "./MinWidth";
+import MinWidth from "./MinWidth";
+
+export { MinWidth };
+export default MinWidth;

@@ -10,6 +10,9 @@ $ npm install minwidth-react
 
 ```tsx
 import MinWidth from "minwidth-react";
+// or
+// import { MinWidth } from 'minwidth-react';
+
 function App() {
   return (
     <MinWidth width={200}>

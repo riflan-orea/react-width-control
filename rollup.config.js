@@ -20,6 +20,11 @@ export default {
   plugins: [
     typescript({
       tsconfig: "./tsconfig.json",
+      tsconfigOverride: {
+        compilerOptions: {
+          declaration: true,
+        },
+      },
     }),
   ],
   external: ["react"],
