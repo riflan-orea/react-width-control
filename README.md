@@ -9,7 +9,8 @@ A simple React component to set a minimum width for its children.
 ## Usage
 
 ```tsx
-import MinWidth from "minwidth-react";
+import MinWidth from "react-minwidth";
+
 function App() {
   return (
     <MinWidth width={200}>
