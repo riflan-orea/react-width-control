@@ -1,25 +1,30 @@
-import { createElement, CSSProperties, ReactElement } from "react";
+import React, { ReactElement, CSSProperties } from "react";
 
 type MinWidthProps = {
   children: ReactElement;
   size: number;
 };
 
-const MinWidth = ({ children, size }: MinWidthProps) => {
-  const childStyle = children.props.style || {};
+const MinWidth: React.FC<MinWidthProps> = ({ children, size }) => {
+  const childStyle = (children.props.style as CSSProperties) || {};
   const combinedStyle: CSSProperties = {
     ...childStyle,
     minWidth: `${size}px`,
   };
 
-  return createElement(
-    children.type,
-    {
-      ...children.props,
+  // Check if the child is a React component
+  if (
+    typeof children.type === "function" ||
+    typeof children.type === "object"
+  ) {
+    return React.cloneElement(children, {
       style: combinedStyle,
-    },
-    children.props.children
-  );
+    });
+  }
+
+  return React.cloneElement(children, {
+    style: combinedStyle,
+  });
 };
 
 export default MinWidth;
