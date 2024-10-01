@@ -17,12 +17,14 @@ const MinWidth: React.FC<MinWidthProps> = ({ children, size }) => {
     typeof children.type === "function" ||
     typeof children.type === "object"
   ) {
-    return React.cloneElement(children, {
+    return React.createElement(children.type, {
+      ...children.props,
       style: combinedStyle,
     });
   }
 
-  return React.cloneElement(children, {
+  return React.createElement(children.type, {
+    ...children.props,
     style: combinedStyle,
   });
 };
