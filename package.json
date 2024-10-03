@@ -1,6 +1,6 @@
 {
   "name": "react-minwidth",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "A React component for setting minimum width",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
