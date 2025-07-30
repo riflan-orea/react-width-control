@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React Width Components - Development</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 3rem;
+        }
+        
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .content {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .section {
+            margin-bottom: 2rem;
+        }
+        
+        .section h2 {
+            color: #667eea;
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .card {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .card h3 {
+            color: #495057;
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+        
+        .card p {
+            color: #6c757d;
+            margin-bottom: 1rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 500;
+            transition: background 0.2s ease;
+        }
+        
+        .btn:hover {
+            background: #5a6fd8;
+        }
+        
+        .btn-secondary {
+            background: #6c757d;
+        }
+        
+        .btn-secondary:hover {
+            background: #5a6268;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .feature {
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            background: #e3f2fd;
+            border-radius: 6px;
+            border-left: 4px solid #2196f3;
+        }
+        
+        .feature-icon {
+            font-size: 1.5rem;
+            margin-right: 1rem;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 3rem;
+            color: white;
+            opacity: 0.8;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .container {
+                padding: 1rem;
+            }
+            
+            .content {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>🎯 React Width Components</h1>
+            <p>Lightweight, type-safe React components for responsive width constraints and text truncation</p>
+        </header>
+        
+        <div class="content">
+            <section class="section">
+                <h2>🚀 Quick Start</h2>
+                <div class="grid">
+                    <div class="card">
+                        <h3>Installation</h3>
+                        <p>Install the package using npm, yarn, or pnpm</p>
+                        <a href="#" class="btn">npm install react-width-control</a>
+                    </div>
+                    <div class="card">
+                        <h3>Basic Usage</h3>
+                        <p>Start using the components in your React application</p>
+                        <a href="#" class="btn">View Examples</a>
+                    </div>
+                    <div class="card">
+                        <h3>Documentation</h3>
+                        <p>Comprehensive API documentation and examples</p>
+                        <a href="#" class="btn">Read Docs</a>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="section">
+                <h2>✨ Features</h2>
+                <div class="features">
+                    <div class="feature">
+                        <span class="feature-icon">📐</span>
+                        <div>
+                            <strong>Width Controls</strong>
+                            <div>MinWidth, MaxWidth, and flexible Width components</div>
+                        </div>
+                    </div>
+                    <div class="feature">
+                        <span class="feature-icon">✂️</span>
+                        <div>
+                            <strong>Text Truncation</strong>
+                            <div>Single-line and multi-line text truncation with ellipsis</div>
+                        </div>
+                    </div>
+                    <div class="feature">
+                        <span class="feature-icon">🔧</span>
+                        <div>
+                            <strong>TypeScript Ready</strong>
+                            <div>Full TypeScript support with type definitions</div>
+                        </div>
+                    </div>
+                    <div class="feature">
+                        <span class="feature-icon">📱</span>
+                        <div>
+                            <strong>Responsive Design</strong>
+                            <div>Perfect for mobile-first development</div>
+                        </div>
+                    </div>
+                    <div class="feature">
+                        <span class="feature-icon">⚡</span>
+                        <div>
+                            <strong>Performance Optimized</strong>
+                            <div>Zero dependencies, React 17+ compatible</div>
+                        </div>
+                    </div>
+                    <div class="feature">
+                        <span class="feature-icon">🎨</span>
+                        <div>
+                            <strong>Flexible Styling</strong>
+                            <div>Works with any CSS framework or styling solution</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="section">
+                <h2>🧪 Development & Testing</h2>
+                <div class="grid">
+                    <div class="card">
+                        <h3>Test Components</h3>
+                        <p>Comprehensive test suite for all 6 components</p>
+                        <a href="./tests/TestRunner.html" class="btn">Run Tests</a>
+                    </div>
+                    <div class="card">
+                        <h3>Development Setup</h3>
+                        <p>Local development environment and build tools</p>
+                        <a href="./README-LOCAL.md" class="btn">Setup Guide</a>
+                    </div>
+                    <div class="card">
+                        <h3>Examples</h3>
+                        <p>Real-world usage examples and patterns</p>
+                        <a href="./examples.md" class="btn">View Examples</a>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="section">
+                <h2>📦 Components</h2>
+                <div class="grid">
+                    <div class="card">
+                        <h3>MinWidth</h3>
+                        <p>Set minimum width constraints for responsive elements</p>
+                        <a href="./tests/MinWidth.test.html" class="btn btn-secondary">Test MinWidth</a>
+                    </div>
+                    <div class="card">
+                        <h3>MaxWidth</h3>
+                        <p>Set maximum width constraints to prevent overflow</p>
+                        <a href="./tests/MaxWidth.test.html" class="btn btn-secondary">Test MaxWidth</a>
+                    </div>
+                    <div class="card">
+                        <h3>Width</h3>
+                        <p>Flexible width control with min/max/fixed options</p>
+                        <a href="./tests/Width.test.html" class="btn btn-secondary">Test Width</a>
+                    </div>
+                    <div class="card">
+                        <h3>Truncate</h3>
+                        <p>Single-line text truncation with ellipsis</p>
+                        <a href="./tests/Truncate.test.html" class="btn btn-secondary">Test Truncate</a>
+                    </div>
+                    <div class="card">
+                        <h3>MultilineTruncate</h3>
+                        <p>Multi-line text truncation with line count control</p>
+                        <a href="./tests/MultilineTruncate.test.html" class="btn btn-secondary">Test MultilineTruncate</a>
+                    </div>
+                    <div class="card">
+                        <h3>TextTruncate</h3>
+                        <p>Flexible component for both single and multi-line truncation</p>
+                        <a href="./tests/TextTruncate.test.html" class="btn btn-secondary">Test TextTruncate</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+        
+        <footer class="footer">
+            <p>Made with ❤️ for the React community</p>
+            <p>Open source • MIT License • TypeScript Ready</p>
+        </footer>
+    </div>
+</body>
+</html> 
