@@ -1,51 +1,33 @@
-import React, {
-    ReactElement,
-    CSSProperties,
-    forwardRef,
-    Ref,
-    createElement,
-  } from "react";
-  
-  /**
-   * Props for the Truncate component
-   * @property {ReactElement} children - The children to apply text truncation
-   */
-  
-  type TruncateProps = {
-    children: ReactElement;
-  };
-  
-  const Truncate = forwardRef<HTMLDivElement, TruncateProps>(
-    ({ children, ...props }, ref: Ref<HTMLDivElement>) => {
-      const childStyle = (children.props.style as CSSProperties) || {};
-  
-      const combinedStyle: CSSProperties = {
-        ...childStyle,
-        overflow: 'hidden',
-        textOverflow: 'ellipsis',
-        whiteSpace: 'nowrap',
-      };
-  
-      // if children is react component
-      if (
-        typeof children.type === "function" ||
-        typeof children.type === "object"
-      ) {
-        return (
-          <div ref={ref} style={combinedStyle} {...props}>
-            {children}
-          </div>
-        );
-      }
-  
-      // Apply truncation for native HTML elements
-      return createElement(children.type, {
-        ...children.props,
-        style: combinedStyle,
-      });
-    }
-  );
-  
-  Truncate.displayName = "Truncate";
-  
-  export default Truncate;
+import React from 'react';
+import type { CSSProperties, Ref } from 'react';
+import { forwardRef } from 'react';
+
+/**
+ * Props for the Truncate component
+ * @property {React.ReactNode} children - The children to apply text truncation
+ */
+
+type TruncateProps = {
+  children: React.ReactNode;
+};
+
+const Truncate = forwardRef<HTMLDivElement, TruncateProps>(
+  ({ children, ...props }, ref: Ref<HTMLDivElement>) => {
+    const combinedStyle: CSSProperties = {
+      overflow: 'hidden',
+      textOverflow: 'ellipsis',
+      whiteSpace: 'nowrap',
+    };
+
+    // Wrap children in a div with truncation styles
+    return (
+      <div ref={ref} style={combinedStyle} {...props}>
+        {children}
+      </div>
+    );
+  }
+);
+
+Truncate.displayName = "Truncate";
+
+export default Truncate;
