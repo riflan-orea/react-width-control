@@ -5,9 +5,9 @@ This is a Vite.js-based frontend application that showcases the React MinWidth c
 ## Features
 
 - **Component Showcase**: Visual demonstration of all components
-- **Storybook Integration**: Interactive component testing and documentation
 - **Responsive Design**: Works on all screen sizes
 - **Modern UI**: Beautiful gradient background and clean design
+- **CSS-based Truncation**: Pure CSS solution with fallback support
 
 ## Available Scripts
 
@@ -15,18 +15,12 @@ This is a Vite.js-based frontend application that showcases the React MinWidth c
 ```bash
 # Start the Vite development server
 npm run dev
-
-# Start Storybook for component testing
-npm run storybook
 ```
 
 ### Building
 ```bash
 # Build the application for production
 npm run build
-
-# Build Storybook for deployment
-npm run build-storybook
 ```
 
 ### Other
@@ -46,11 +40,11 @@ npm run preview
 4. **Truncate**: Single-line text truncation
 5. **MultilineTruncate**: Multi-line text truncation
 6. **TextTruncate**: Flexible truncation options
+7. **TruncateCSS**: CSS-based truncation with fallback support
 
 ## Access Points
 
 - **Main Demo**: `http://localhost:5173` (Vite dev server)
-- **Storybook**: `http://localhost:6006` (Storybook dev server)
 
 ## Project Structure
 
@@ -58,10 +52,10 @@ npm run preview
 FE/
 ├── src/
 │   ├── components/          # React components
-│   ├── stories/            # Storybook stories
 │   ├── App.tsx            # Main demo application
-│   └── main.tsx           # Application entry point
-├── .storybook/            # Storybook configuration
+│   ├── main.tsx           # Application entry point
+│   ├── truncate.css       # CSS truncation classes
+│   └── index.ts           # Component exports
 ├── public/                # Static assets
 └── package.json           # Dependencies and scripts
 ```
@@ -71,21 +65,40 @@ FE/
 This project uses:
 - **Vite**: Fast build tool and dev server
 - **React 19**: Latest React with TypeScript
-- **Storybook**: Component development and testing
 - **TypeScript**: Type-safe development
+- **CSS**: Pure CSS truncation with cross-browser support
 
 ## Testing Components
 
 1. **Visual Testing**: Run `npm run dev` to see the component showcase
-2. **Interactive Testing**: Run `npm run storybook` for interactive component testing
-3. **Responsive Testing**: Resize browser window to test responsive behavior
-4. **Edge Cases**: Test with different content lengths and special characters
+2. **Responsive Testing**: Resize browser window to test responsive behavior
+3. **Edge Cases**: Test with different content lengths and special characters
+4. **Cross-browser Testing**: Test truncation in different browsers
+
+## Component Features
+
+### Width Constraints
+- **MinWidth**: Ensures minimum width regardless of content
+- **MaxWidth**: Limits maximum width and wraps content
+- **Width**: Combines min/max/fixed width with truncation
+
+### Text Truncation
+- **Truncate**: Single-line truncation with ellipsis
+- **MultilineTruncate**: Multi-line truncation with specified line count
+- **TextTruncate**: Flexible truncation (single or multi-line)
+- **TruncateCSS**: CSS-based truncation with fallback support
+
+### CSS Truncation Benefits
+- ✅ **Pure CSS solution** - No JavaScript calculations
+- ✅ **Cross-browser compatibility** - Fallback support for older browsers
+- ✅ **Better performance** - CSS-only approach is faster
+- ✅ **Easy customization** - Simple CSS classes to modify
 
 ## Contributing
 
 To add new components or modify existing ones:
 
 1. Add the component to `src/`
-2. Create stories in `src/*.stories.tsx`
+2. Update the exports in `src/index.ts`
 3. Update the showcase in `src/App.tsx`
-4. Test with both Vite dev server and Storybook
+4. Test with the Vite dev server
