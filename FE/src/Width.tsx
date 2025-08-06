@@ -1,10 +1,10 @@
 import React from 'react';
-import type { ReactElement, CSSProperties, Ref } from 'react';
-import { forwardRef, createElement } from 'react';
+import type { CSSProperties, Ref } from 'react';
+import { forwardRef } from 'react';
   
   /**
    * Props for the Width component
-   * @property {ReactElement} children - The children to apply the width constraints
+   * @property {React.ReactNode} children - The children to apply the width constraints
    * @property {number} [minWidth] - The minimum width in pixels
    * @property {number} [maxWidth] - The maximum width in pixels
    * @property {number} [width] - The exact width in pixels
@@ -14,7 +14,7 @@ import { forwardRef, createElement } from 'react';
    */
   
   type WidthProps = {
-    children: ReactElement;
+    children: React.ReactNode;
     minWidth?: number;
     maxWidth?: number;
     width?: number;
@@ -34,9 +34,6 @@ import { forwardRef, createElement } from 'react';
       truncateEllipsis = "...",
       ...props 
     }, ref: Ref<HTMLDivElement>) => {
-      // @ts-ignore - children.props.style exists but TypeScript doesn't know the type
-      const childStyle = (children.props?.style as CSSProperties) || {};
-  
       // Base width constraints
       const widthConstraints: CSSProperties = {
         ...(minWidth !== undefined && { minWidth: `${minWidth}px` }),
@@ -58,37 +55,23 @@ import { forwardRef, createElement } from 'react';
         } else if (lines && lines > 1) {
           // Multi-line truncation
           truncationStyles.display = '-webkit-box';
-          truncationStyles.WebkitLineClamp = lines;
           truncationStyles.WebkitBoxOrient = 'vertical';
+          truncationStyles.WebkitLineClamp = lines;
           truncationStyles.overflow = 'hidden';
-          truncationStyles.textOverflow = 'ellipsis';
         }
       }
   
       const combinedStyle: CSSProperties = {
-        ...childStyle,
         ...widthConstraints,
         ...truncationStyles,
       };
   
-      // if children is react component
-      if (
-        typeof children.type === "function" ||
-        typeof children.type === "object"
-      ) {
-        return (
-          <div ref={ref} style={combinedStyle} {...props}>
-            {children}
-          </div>
-        );
-      }
-  
-      // Apply width constraints and truncation for native HTML elements
-      // @ts-ignore - createElement expects specific props but we're passing dynamic ones
-      return createElement(children.type, {
-        ...(children.props as Record<string, unknown>),
-        style: combinedStyle,
-      });
+      // Wrap children in a div with width constraints and truncation styles
+      return (
+        <div ref={ref} style={combinedStyle} {...props}>
+          {children}
+        </div>
+      );
     }
   );
   
