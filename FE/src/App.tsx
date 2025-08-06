@@ -1,7 +1,12 @@
-import React from 'react';
 import './App.css';
 import './truncate.css';
-import { MinWidth, MaxWidth, Width, Truncate, MultilineTruncate, TextTruncate, TruncateCSS } from './index';
+import MinWidth from '../../src/MinWidth';
+import MaxWidth from '../../src/MaxWidth';
+import Width from '../../src/Width';
+import Truncate from '../../src/Truncate';
+import MultilineTruncate from '../../src/MultilineTruncate';
+import TextTruncate from './TextTruncate';
+import TruncateCSS from './TruncateCSS';
 
 function App() {
   return (

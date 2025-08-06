@@ -1,67 +1,48 @@
-import React, {
-    ReactElement,
-    CSSProperties,
-    forwardRef,
-    Ref,
-    createElement,
-  } from "react";
-  
-  /**
-   * Props for the TextTruncate component
-   * @property {ReactElement} children - The children to apply text truncation
-   * @property {number} [lines] - The number of lines before truncation. If not provided, defaults to single-line truncation
-   */
-  
-  type TextTruncateProps = {
-    children: ReactElement;
-    lines?: number;
-  };
-  
-  const TextTruncate = forwardRef<HTMLDivElement, TextTruncateProps>(
-    ({ children, lines, ...props }, ref: Ref<HTMLDivElement>) => {
-      const childStyle = (children.props.style as CSSProperties) || {};
-  
-      // Single-line truncation
-      const singleLineStyle: CSSProperties = {
-        overflow: 'hidden',
-        textOverflow: 'ellipsis',
-        whiteSpace: 'nowrap',
-      };
-  
-      // Multi-line truncation
-      const multiLineStyle: CSSProperties = {
-        display: '-webkit-box',
-        WebkitLineClamp: lines,
-        WebkitBoxOrient: 'vertical',
-        overflow: 'hidden',
-        textOverflow: 'ellipsis',
-      };
-  
-      const combinedStyle: CSSProperties = {
-        ...childStyle,
-        ...(lines && lines > 1 ? multiLineStyle : singleLineStyle),
-      };
-  
-      // if children is react component
-      if (
-        typeof children.type === "function" ||
-        typeof children.type === "object"
-      ) {
-        return (
-          <div ref={ref} style={combinedStyle} {...props}>
-            {children}
-          </div>
-        );
-      }
-  
-      // Apply truncation for native HTML elements
-      return createElement(children.type, {
-        ...children.props,
-        style: combinedStyle,
-      });
-    }
-  );
-  
-  TextTruncate.displayName = "TextTruncate";
-  
-  export default TextTruncate;
+import React from 'react';
+import type { CSSProperties, Ref } from 'react';
+import { forwardRef } from 'react';
+
+/**
+ * Props for the TextTruncate component
+ * @property {React.ReactNode} children - The children to apply text truncation
+ * @property {number} [lines] - The number of lines before truncation. If not provided, defaults to single-line truncation
+ */
+
+type TextTruncateProps = {
+  children: React.ReactNode;
+  lines?: number;
+};
+
+const TextTruncate = forwardRef<HTMLDivElement, TextTruncateProps>(
+  ({ children, lines, ...props }, ref: Ref<HTMLDivElement>) => {
+    // Single-line truncation
+    const singleLineStyle: CSSProperties = {
+      overflow: 'hidden',
+      textOverflow: 'ellipsis',
+      whiteSpace: 'nowrap',
+    };
+
+    // Multi-line truncation
+    const multiLineStyle: CSSProperties = {
+      display: '-webkit-box',
+      WebkitBoxOrient: 'vertical',
+      WebkitLineClamp: lines!,
+      overflow: 'hidden',
+    };
+
+    const combinedStyle: CSSProperties = {
+      ...(lines && lines > 1 ? multiLineStyle : singleLineStyle),
+    };
+
+    // Wrap children in a div with truncation styles
+    return (
+      <div ref={ref} style={combinedStyle} {...props}>
+        {children}
+      </div>
+    );
+  }
+);
+
+TextTruncate.displayName = "TextTruncate";
+
+export default TextTruncate;
