@@ -4,7 +4,7 @@ import { forwardRef } from 'react';
 
 /**
  * Props for the TextTruncate component
- * @property {React.ReactNode} children - The children to apply text truncation
+ * @property {React.ReactNode} children - The text content to apply truncation
  * @property {number} [lines] - The number of lines before truncation. If not provided, defaults to single-line truncation
  */
 
@@ -20,6 +20,8 @@ const TextTruncate = forwardRef<HTMLDivElement, TextTruncateProps>(
       overflow: 'hidden',
       textOverflow: 'ellipsis',
       whiteSpace: 'nowrap',
+      margin: 0,
+      padding: 0,
     };
 
     // Multi-line truncation
@@ -28,13 +30,15 @@ const TextTruncate = forwardRef<HTMLDivElement, TextTruncateProps>(
       WebkitBoxOrient: 'vertical',
       WebkitLineClamp: lines!,
       overflow: 'hidden',
+      margin: 0,
+      padding: 0,
     };
 
     const combinedStyle: CSSProperties = {
       ...(lines && lines > 1 ? multiLineStyle : singleLineStyle),
     };
 
-    // Wrap children in a div with truncation styles
+    // Wrap children in a div with truncation styles and no spacing
     return (
       <div ref={ref} style={combinedStyle} {...props}>
         {children}
