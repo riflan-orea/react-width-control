@@ -1,3 +1,5 @@
+⚠️ This package has been renamed and moved to [react-width-control](https://www.npmjs.com/package/react-width-control).
+
 # 🎯 React Width Components
 
 [![npm version](https://badge.fury.io/js/react-width-control.svg)](https://badge.fury.io/js/react-width-control)
@@ -552,8 +554,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 🔗 Links
 
 - [NPM Package](https://www.npmjs.com/package/react-width-control)
-- [GitHub Repository](https://github.com/username/react-width-control)
-- [Issue Tracker](https://github.com/username/react-width-control/issues)
+- [GitHub Repository](https://github.com/riflan-orea/react-width-control)
+- [Issue Tracker](https://github.com/riflan-orea/react-width-control/issues)
 
 ---
 
