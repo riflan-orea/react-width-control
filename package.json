@@ -1,6 +1,6 @@
 {
   "name": "react-width-control",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "A React component for setting minimum width and maximum width",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
@@ -35,12 +35,11 @@
     "typescript": "^4.9.5"
   },
   "repository": {
-  "type": "git",
-  "url": "https://github.com/riflan-orea/react-width-control.git"
+    "type": "git",
+    "url": "https://github.com/riflan-orea/react-width-control.git"
   },
   "bugs": {
     "url": "https://github.com/riflan-orea/react-width-control/issues"
   },
   "homepage": "https://github.com/riflan-orea/react-width-control#readme"
-
 }
