@@ -23,7 +23,7 @@ const TruncateCSS: React.FC<TruncateCSSProps> = ({
   style = {} 
 }) => {
   // Determine CSS class based on lines
-  let truncateClass = '';
+  let truncateClass: string;
   switch (lines) {
     case 2:
       truncateClass = 'truncate-2-lines';

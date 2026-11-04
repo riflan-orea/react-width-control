@@ -20,6 +20,8 @@ export default {
   plugins: [
     typescript({
       tsconfig: "./tsconfig.json",
+      // picomatch >=2.3.2 no longer matches rpt2 default "*.ts+(|x)"
+      include: ["**/*.ts", "**/*.tsx"],
       tsconfigOverride: {
         compilerOptions: {
           declaration: true,
