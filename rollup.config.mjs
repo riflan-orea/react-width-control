@@ -1,5 +1,7 @@
 import typescript from "rollup-plugin-typescript2";
-import pkg from "./package.json";
+import { readFileSync } from "node:fs";
+
+const pkg = JSON.parse(readFileSync("./package.json", "utf8"));
 
 export default {
   input: "src/index.ts",
@@ -20,8 +22,6 @@ export default {
   plugins: [
     typescript({
       tsconfig: "./tsconfig.json",
-      // picomatch >=2.3.2 no longer matches rpt2 default "*.ts+(|x)"
-      include: ["**/*.ts", "**/*.tsx"],
       tsconfigOverride: {
         compilerOptions: {
           declaration: true,

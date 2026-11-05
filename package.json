@@ -10,6 +10,7 @@
   ],
   "scripts": {
     "build": "rollup -c",
+    "test:compat": "node scripts/compat-test.mjs",
     "prepublishOnly": "npm run build"
   },
   "keywords": [
@@ -39,13 +40,10 @@
     "react": "^17.0.0 || ^18.0.0 || ^19.0.1 || ^19.1.2 || ^19.2.1"
   },
   "devDependencies": {
-    "@types/react": "^19.1.2",
-    "react": "^19.1.2",
-    "rollup": "^2.80.0",
-    "rollup-plugin-typescript2": "^0.31.2",
+    "@types/react": "^19.3.0",
+    "react": "^19.3.1",
+    "rollup": "^4.67.5",
+    "rollup-plugin-typescript2": "^0.37.0",
     "typescript": "~6.0.3"
-  },
-  "overrides": {
-    "picomatch": "^2.3.2"
   }
 }
