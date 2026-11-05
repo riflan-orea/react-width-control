@@ -12,8 +12,7 @@ function App() {
   return (
     <div className="App">
       <header style={{
-        background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-        color: 'white',
+        color: '#213547',
         padding: '2rem',
         textAlign: 'center'
       }}>
