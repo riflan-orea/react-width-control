@@ -1,5 +1,3 @@
-⚠️ This package has been renamed and moved to [react-width-control](https://www.npmjs.com/package/react-width-control).
-
 # 🎯 React Width Components
 
 [![npm version](https://badge.fury.io/js/react-width-control.svg)](https://badge.fury.io/js/react-width-control)
