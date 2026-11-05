@@ -1,15 +1,17 @@
 {
   "name": "react-width-control",
   "version": "1.1.3",
-  "description": "A React component for setting minimum width and maximum width",
+  "description": "Lightweight React components for min/max width constraints and single/multi-line text truncation with ellipsis. TypeScript, React 17–19.",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
+  "sideEffects": false,
   "files": [
     "dist"
   ],
   "scripts": {
     "build": "rollup -c",
+    "test:compat": "node scripts/compat-test.mjs",
     "prepublishOnly": "npm run build"
   },
   "keywords": [
@@ -20,7 +22,14 @@
     "width",
     "control",
     "react-width-control",
-    "truncate"
+    "truncate",
+    "ellipsis",
+    "text-truncate",
+    "line-clamp",
+    "multiline",
+    "responsive",
+    "typescript",
+    "react-component"
   ],
   "author": "Riflan Ahamed",
   "license": "MIT",
@@ -36,13 +45,13 @@
     "access": "public"
   },
   "peerDependencies": {
-    "react": "^17.0.0 || ^18.0.0"
+    "react": "^17.0.0 || ^18.0.0 || ^19.0.1 || ^19.1.2 || ^19.2.1"
   },
   "devDependencies": {
-    "@types/react": "^18.0.0",
-    "react": "^18.0.0",
-    "rollup": "^2.79.1",
-    "rollup-plugin-typescript2": "^0.31.2",
-    "typescript": "^4.9.5"
+    "@types/react": "^19.3.0",
+    "react": "^19.3.1",
+    "rollup": "^4.67.5",
+    "rollup-plugin-typescript2": "^0.37.0",
+    "typescript": "~6.0.3"
   }
 }
